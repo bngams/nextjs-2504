@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import Link from "next/link";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -27,6 +28,19 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
+        {/* Creer un header : chercher les styles tailwind... */}
+        <header className="bg-gray-300 p-4 flex justify-between items-center">
+          <span className="text-3xl">My App</span>
+
+          <ul className="flex gap-4">
+            <li>
+              <Link href="/">Home</Link>
+            </li>
+            <li>
+              <Link href="/posts">Posts</Link>  
+            </li>
+          </ul>
+        </header>
         {children}
       </body>
     </html>
