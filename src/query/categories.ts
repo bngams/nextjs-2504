@@ -1,6 +1,7 @@
+import { PrismaClient } from "@/generated/prisma";
 import connection from "@/lib/mysql";
 
-export async function findCategory(categoryID: number | string) {
+export async function findOneCategory(categoryID: number | string) {
   // A simple SELECT query
   try {
     const [results] = await connection.query(
@@ -9,6 +10,19 @@ export async function findCategory(categoryID: number | string) {
     );
 
     return results; // results contains rows returned by server
+
+  } catch (err) {
+    console.log(err);
+  }
+}
+
+// use prisma to get all categories
+export async function findAllCategories() {
+  // A simple SELECT query
+  try {
+    const prisma = new PrismaClient();
+    const categories = await prisma.categories.findMany();
+    return categories; // results contains rows returned by server
 
   } catch (err) {
     console.log(err);

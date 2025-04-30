@@ -1,4 +1,4 @@
-import { findCategory } from "@/query/categories";
+import { findOneCategory } from "@/query/categories";
 
 
 export default async function Categories({ params }: { params: Promise<{ category: string }> }) {
@@ -6,7 +6,7 @@ export default async function Categories({ params }: { params: Promise<{ categor
   // params: Promise<{ category: string }> 
   const { category } = await params; // destructuring params to get category
 
-  const categoryData = await findCategory(category); // call the function to get category data
+  const categoryData = await findOneCategory(category); // call the function to get category data
 
   return (
     <div className="flex flex-col gap-4">
