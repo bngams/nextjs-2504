@@ -39,6 +39,9 @@ export default function RootLayout({
             <li>
               <Link href="/posts">Posts</Link>  
             </li>
+            <li>
+              <Link href="/login">Login</Link>  
+            </li>
           </ul>
         </header>
         {children}
