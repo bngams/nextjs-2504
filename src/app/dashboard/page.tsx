@@ -1,22 +1,16 @@
-import { cookies } from 'next/headers'
-import { redirect } from 'next/navigation'
+import { logout } from "@/actions/logout";
 
 export default async function DashboardPage() {
 
-  // check if the user is authenticated
-  const mCookies = await cookies();
-  const token = mCookies.get('auth_token')?.value
-  // is the token valid ?
-  // ...
-  if(!token) {
-    // redirect to login page
-    redirect('/login') 
-  }
+  // access verification moved to middleware.ts
 
   return (
     <div>
       <h1>Dashboard</h1>
-      <p>Token actuel : {token}</p>
+      <p>Welcome!</p>
+      <form action={logout}>
+        <button type="submit">Logout</button>
+      </form>
     </div>
   )
 }
