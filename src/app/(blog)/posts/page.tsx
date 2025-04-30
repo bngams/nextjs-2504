@@ -1,12 +1,5 @@
-import { PostsList } from "./ui/posts";
-
-// Définir le type Post (type vs. interface)
-export type Post = {
-  id: number;
-  title: string;
-  body: string;
-  userId: number;
-}
+import Post from "@/models/post";
+import { PostsList } from "@/ui/posts";
 
 async function getData(): Promise<Post[]> {
   console.log("Fetching data..."); // log to the console

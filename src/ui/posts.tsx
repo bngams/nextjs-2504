@@ -1,7 +1,7 @@
 "use client";
 
+import Post from "@/models/post";
 import React from "react";
-import { Post } from "../page";
 
 export function PostsList({ posts }: { posts: Post[] }) {
   return (
